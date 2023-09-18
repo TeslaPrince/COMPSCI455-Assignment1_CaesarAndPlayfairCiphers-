@@ -1,4 +1,4 @@
-# COMPSCI455-Assignment1_CaesarAndPlayfairCiphers-
+# COMPSCI455-Assignment1_CaesarAndPlayfairCiphers
 
 ## Part 1 (10 pts)
 
