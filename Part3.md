@@ -1,0 +1,16 @@
+# Part 3
+
+**Key:** LIGHTNING
+
+**CipherText:** PMDSQGHZKXFNMC
+
+LIGHT  
+NABCD  
+EFKMO  
+PQRSU  
+VWXYZ  
+
+PM DS QG HZ KX FN MC  
+SE CU RI TY BR EA CH
+
+**PlainText:** SECURITYBREACH
