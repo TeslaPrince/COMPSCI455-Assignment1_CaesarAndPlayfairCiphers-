@@ -1,43 +1,42 @@
 import java.io.*;
 import java.util.*;
 public class Solution {
-  public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  public static String decrypt(String cipherText, int shiftKey) {
+  public static final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  public static String decrypt(String cipherText, int shift) {
     cipherText = cipherText.toUpperCase();
-    String message = "";
+    String plainText = "";
     for (int ii = 0; ii < cipherText.length(); ii++) {
-      int charPosition = ALPHABET.indexOf(cipherText.charAt(ii));
-      int keyVal = (charPosition - shiftKey) % 26;
+      int position = alpha.indexOf(cipherText.charAt(ii));
+      int keyVal = (position - shift) % 26;
       if (keyVal < 0) {
-        keyVal = ALPHABET.length() + keyVal;
+        keyVal = alpha.length() + keyVal;
       }
-      char replaceVal = ALPHABET.charAt(keyVal);
-      message += replaceVal;
+      char eq = alpha.charAt(keyVal);
+      plainText += eq;
     }
-    return message;
+    return plainText;
   }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    String message = new String();
+    String text = new String();
     int key = 0;
     System.out.print("Choose which type of decryption:\n1. TUZBKXEYKIAXK\n2. TSJLCPYZJCRMZPSRCDMPACYRRYAIQ\n3. Custom Message\n");
     int choice = sc.nextInt();
     switch (choice){
       case 1:
-        message = "TUZBKXEYKIAXK";
+        text = "TUZBKXEYKIAXK";
         break;
       case 2:
-        message = "TSJLCPYZJCRMZPSRCDMPACYRRYAIQ";
+        text = "TSJLCPYZJCRMZPSRCDMPACYRRYAIQ";
         break;
       default:
         System.out.println("Enter Custom Message:");
-        message = sc.next();
+        text = sc.next();
         break;
     }
     for (int i = 0; i < 26; i++){
       key = i;
-      System.out.println("\nDecrypted message with shift " + i + ": " + decrypt(message, key));
+      System.out.println("\nDecrypted message with shift " + i + ": " + decrypt(text, key));
     }
     if(choice == 1){
       System.out.println("\nExpected Outcome: Shift of 6 NOTVERYSECURE");
@@ -45,5 +44,6 @@ public class Solution {
     else if(choice == 2){
       System.out.println("\nExpected Outcome: Shift of 24 VULNERABLETOBRUTEFORCEATTACKS");
     }
+    sc.close();
   }
 }
